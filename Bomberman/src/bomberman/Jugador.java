@@ -1,16 +1,32 @@
 package bomberman;
 
+import java.awt.Color;
+import java.awt.Rectangle;
+
 public class Jugador extends Personaje {
-	private int id; //aleatorio segun ingreso al servidor	
+	protected byte id; //aleatorio segun ingreso al servidor	
 	private int vidas; 
-	private float potenciaBomba;
+	private int potenciaBomba;
+	private int cantBombas;
+	private Color color;
 	
-	
-	public Jugador() {
+	public Jugador(Punto2D posicion) {
+		super(posicion);
 		this.vidas = 4;
-		this.potenciaBomba = 10.0f;
-		this.velocidad = 10.0f;
+		this.potenciaBomba = 10;
+		this.velocidad = 1.0f;
+		this.color = Color.WHITE;
+		
 	}	
+		
+	
+	public void setSprites(Sprite norte, Sprite sur, Sprite este ,Sprite oeste, Sprite muerte){
+		this.personajeN = norte;
+		this.personajeS = sur;
+		this.personajeE = este;
+		this.personajeO = oeste;
+		this.personajeMuerte = muerte;	
+	}
 	
 	@Override
 	public void atacar() {
@@ -18,11 +34,11 @@ public class Jugador extends Personaje {
 		
 	}
 	
-	public int getId() {
+	public byte getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(byte id) {
 		this.id = id;
 	}
 	
@@ -34,13 +50,28 @@ public class Jugador extends Personaje {
 		return vidas;
 	}
 	
-	public void setPotenciaBomba(float potenciaBomba) {
+	public void setPotenciaBomba(int potenciaBomba) {
 		this.potenciaBomba = potenciaBomba;
 	}
 	
-	public float getPotenciaBomba() {
+	public int getPotenciaBomba() {
 		return potenciaBomba;
 	}
 	
+	public int getCantBombas() {
+		return cantBombas;
+	}
 	
+	public void setCantBombas(int cantBombas) {
+		this.cantBombas = cantBombas;
+	}
+	
+	public Color getColor() {
+		return color;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 }
